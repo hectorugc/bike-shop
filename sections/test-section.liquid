@@ -1,0 +1,26 @@
+
+<div class="custom-header">
+  <h2>{{ section.settings.heading_text }}</h2>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Custom Header",
+    "tag": "section",
+    "presets": [
+      {
+        "name": "Custom Header",
+        "category": "Custom"
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Text"
+      }
+    ]
+  
+  }
+{% endschema %}
