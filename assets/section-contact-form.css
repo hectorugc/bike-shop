@@ -37,3 +37,15 @@
     grid-column-gap: 2rem;
   }
 }
+
+#productNameField {
+ display: none;
+}
+
+#companyInfo {
+  display: none;
+}
+
+#orderNumberField {
+  display: none;
+}
