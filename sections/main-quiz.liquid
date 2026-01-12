@@ -1,43 +1,41 @@
 {{ 'section-quiz.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'quiz.js' | asset_url }}" defer="defer"></script>
-  
+
 <!--
-<script>
-  const questions = [
-    {
-      name: "product_type",
-      text: "What are you looking for?",
-      options: [
-        { value: "bike", img: '{{"quiz-bike.jpg" | asset_url}}', label: "A new bike" },
-        { value: "equipment", img: '{{"quiz-equipment.jpg" | asset_url}}', label: "Equipment" }
-      ]
-    },
-    {
-      name: "bike_type",
-      text: "What kind of Bike are you looking for?",
-      options: [
-        { value: "track", img: '{{"quiz-track.jpg" | asset_url}}', label: "Track Bike" },
-        { value: "mountain", img: '{{"quiz-mountain.jpg" | asset_url}}', label: "Mountain Bike" }
-      ]
-    },
-    {
-      name: "color",
-      text: "What's your preferred color?",
-      options: [
-        { value: "black", img: '{{ all_products["black-mountain-bike"] | image_url: width: 300 }}', label: "Black" },
-        { value: "blue", img: '{{ all_products["blue-mountain-bike"] | image_url: width: 300 }}', label: "Blue" },
-        { value: "yellow", img: '{{ all_products["yellow-mountain-bike"] | image_url: width: 300 }}', label: "Yellow" },
-        { value: "red", img: '{{ all_products["red-mountain-bike"] | image_url: width: 300 }}', label: "Red" }
-      ]
-    }
-  ];
-</script>
+  <script>
+    const questions = [
+      {
+        name: "product_type",
+        text: "What are you looking for?",
+        options: [
+          { value: "bike", img: '{{"quiz-bike.jpg" | asset_url}}', label: "A new bike" },
+          { value: "equipment", img: '{{"quiz-equipment.jpg" | asset_url}}', label: "Equipment" }
+        ]
+      },
+      {
+        name: "bike_type",
+        text: "What kind of Bike are you looking for?",
+        options: [
+          { value: "track", img: '{{"quiz-track.jpg" | asset_url}}', label: "Track Bike" },
+          { value: "mountain", img: '{{"quiz-mountain.jpg" | asset_url}}', label: "Mountain Bike" }
+        ]
+      },
+      {
+        name: "color",
+        text: "What's your preferred color?",
+        options: [
+          { value: "black", img: '{{ all_products["black-mountain-bike"] | image_url: width: 300 }}', label: "Black" },
+          { value: "blue", img: '{{ all_products["blue-mountain-bike"] | image_url: width: 300 }}', label: "Blue" },
+          { value: "yellow", img: '{{ all_products["yellow-mountain-bike"] | image_url: width: 300 }}', label: "Yellow" },
+          { value: "red", img: '{{ all_products["red-mountain-bike"] | image_url: width: 300 }}', label: "Red" }
+        ]
+      }
+    ];
+  </script>
 -->
 
 <div class="quiz page-width">
-
   <form id="quizForm">
-
     <h2>1) What are you looking for?</h2>
     <div class="label-container">
       <input type="radio" id="bike" name="product_type" value="bike">
@@ -105,27 +103,25 @@
         <span>Red</span>
       </label>
     </div>
-
   </form>
   <div id="nav-buttons">
     <!--
-    <button id="prev-button" class="button previous-btn">← Previous</button>
-    <button id="next-button" class="button next-btn">Next →</button>
+      <button id="prev-button" class="button previous-btn">← Previous</button>
+      <button id="next-button" class="button next-btn">Next →</button>
     -->
     <button id="finish-button" class="button next-btn">Submit</button>
   </div>
- 
 </div>
 
 {% schema %}
-  {
-    "name": "Quiz",
-    "settings": [],
-    "presets": [
-      {
+{
+  "name": "Quiz",
+  "settings": [],
+  "presets": [
+    {
       "name": "Quiz",
       "category": "Custom"
-      }
-    ]
-  }
+    }
+  ]
+}
 {% endschema %}
