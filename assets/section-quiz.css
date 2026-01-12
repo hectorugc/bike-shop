@@ -77,3 +77,28 @@
         /* height: 1865px; */
     }
   }
+
+
+
+
+  /* 1. The Track (The grey background) */
+.progress-bar-background {
+  width: 100% !important;
+  height: 12px !important; /* Fixed height is required */
+  background-color: #333 !important; /* Dark grey so neon pops */
+  border-radius: 10px;
+  margin: 20px 0;
+  position: relative;
+  display: block !important;
+  overflow: hidden;
+}
+
+/* 2. The Fill (The Neon Bar) */
+.progress-bar-fill {
+  display: block !important;
+  height: 100% !important;
+  background-color: #e3fc02 !important; /* Your specific color */
+  width: 0%; /* JS will override this */
+  transition: width 0.4s ease-in-out !important;
+  box-shadow: 0 0 10px rgba(227, 252, 2, 0.5); /* Adds a nice neon glow */
+}
