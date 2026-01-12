@@ -15,7 +15,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "FIND YOUR PERFECT RIDE TODAYY",
+            "heading": "FIND YOUR PERFECT RIDE TODAY",
             "heading_size": "h1"
           }
         },
@@ -30,8 +30,8 @@
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "SHOP",
-            "button_link": "shopify://collections/all",
+            "button_label": "Take Quiz",
+            "button_link": "shopify://pages/quiz",
             "button_style_secondary": false
           }
         }
