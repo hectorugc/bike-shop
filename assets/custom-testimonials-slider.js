@@ -10,12 +10,15 @@
 
 
 // external js: flickity.pkgd.js
-const slideshow_container = document.querySelector(".testimonial-slider");
-const slider = new Flickity(slideshow_container, {
-	// options
-	wrapAround: true,
-	autoPlay: false,
-	pageDots: false,
-    pauseAutoPlayOnHover: false,
-    cellAlign: 'left'
+const carrousels = document.querySelectorAll(".testimonial-slider");
+carrousels.forEach((container) => {
+	const dataAutoPlay = Number(container.dataset.autoplay);
+	new Flickity(container, {
+		// options
+		wrapAround: true,
+		autoPlay: dataAutoPlay,
+		pageDots: false,
+        pauseAutoPlayOnHover: false,
+    	cellAlign: 'left'
+});
 });
