@@ -12,6 +12,31 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Custom Shapes Logic */
+  {% if section.settings.image_shape == 'blob' %}
+    .section-{{ section.id }}-padding .image-with-text__media {
+      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50% !important;
+    }
+  {% elsif section.settings.image_shape == 'wave' %}
+    .section-{{ section.id }}-padding .image-with-text__media {
+      clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+      /* For a more organic wave on modern browsers */
+      clip-path: path('M0,32L48,37.3C96,43,192,53,288,58.7C384,64,480,64,576,53.3C672,43,768,21,864,10.7C960,0,1056,0,1152,10.7C1248,21,1344,43,1392,53.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z');
+      transform: scale(1.1); /* Prevents white edges on high-res screens */
+    }
+  {% elsif section.settings.image_shape == 'round-wave' %}
+     .section-{{ section.id }}-padding .image-with-text__media {
+      border-radius: 65% 35% 48% 52% / 40% 43% 57% 60% !important;
+    }
+  {% endif %}
+
+  /* Ensure the media fills the container and obeys the mask */
+  .section-{{ section.id }}-padding .image-with-text__media img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -30,7 +55,7 @@
       <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
         <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
           <div
-            class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}{% if section.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
+            class="image-with-text__media image-with-text__media--{{ section.settings.image_shape }} image-with-text__media--{{ section.settings.height }} global-media-settings{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}{% if section.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
             {% if section.settings.height == 'adapt' and section.settings.image != blank %}
               style="padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;"
             {% endif %}
@@ -119,6 +144,18 @@
       "type": "image_picker",
       "id": "image",
       "label": "t:sections.image-with-text.settings.image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "options": [
+        { "value": "none", "label": "Original" },
+        { "value": "wave", "label": "Liquid Wave" },
+        { "value": "blob", "label": "Organic Blob" },
+        { "value": "round-wave", "label": "Smooth Ondular" }
+      ],
+      "default": "none",
+      "label": "Image Shape"
     },
     {
       "type": "select",
