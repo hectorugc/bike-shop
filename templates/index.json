@@ -43,6 +43,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/1_-_journey.webp",
+        "image_shape": "round-wave",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -130,6 +131,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/3_-_victory.webp",
+        "image_shape": "none",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -186,6 +188,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/2_-_close_up.webp",
+        "image_shape": "none",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
